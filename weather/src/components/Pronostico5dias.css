@@ -1,0 +1,14 @@
+.pronostico-5dias {
+    margin-top: 1rem;
+  }
+  
+  .pronostico-5dias .dia {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2a2a40;
+    padding: 0.7rem 1rem;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+  }
+  

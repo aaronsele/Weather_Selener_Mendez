@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ClimaContext } from "./contexts/ClimaContext";
+import { ClimaContext } from "../contexts/ClimaContext";
 
 export default function ToggleTema() {
   const { tema, cambiarTema } = useContext(ClimaContext);

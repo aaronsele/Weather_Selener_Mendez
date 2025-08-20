@@ -1,0 +1,19 @@
+.ciudades-destacadas {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .ciudad {
+    background-color: #2a2a40;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    min-width: 120px;
+    color: #ffffff;
+  }
+  
+  .ciudad p {
+    margin: 0.3rem 0;
+  }
+  

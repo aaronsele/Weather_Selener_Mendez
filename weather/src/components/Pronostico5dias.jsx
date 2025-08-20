@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
-import { ClimaContext } from "./contexts/ClimaContext";
-import { obtenerPronostico } from "./api/Clima";
+import { ClimaContext } from "../contexts/ClimaContext";
+import { obtenerPronostico } from "../api/Clima";
+import "./Pronostico5dias.css";
 
 export default function Pronostico5Dias() {
   const { ultimoClima, unidad } = useContext(ClimaContext);

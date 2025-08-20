@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_KEY = " 9c5f3b16c807cf8d7e355e3dc35f5240 ";
+const API_KEY = "9c5f3b16c807cf8d7e355e3dc35f5240";
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 export async function obtenerClimaActual(ciudad, unidad) {

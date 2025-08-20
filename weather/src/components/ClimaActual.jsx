@@ -1,20 +1,32 @@
-import { useContext } from "react";
-import { ClimaContext } from "./contexts/ClimaContext";
+import { useContext, useEffect, useState } from "react";
+import { ClimaContext } from "../contexts/ClimaContext";
+import { obtenerClimaActual } from "../api/Clima";
+import "./ClimaActual.css"
 
 export default function ClimaActual() {
-  const { ultimoClima, unidad } = useContext(ClimaContext);
+  const { ultimoClima, unidad, setUltimoClima } = useContext(ClimaContext);
+  const [loading, setLoading] = useState(false);
 
-  if (!ultimoClima) return <p>No hay datos de clima.</p>;
+  useEffect(() => {
+    if (ultimoClima) {
+      setLoading(true);
+      // pedimos la ciudad actual con la nueva unidad
+      obtenerClimaActual(ultimoClima.name, unidad)
+        .then((data) => setUltimoClima(data))
+        .finally(() => setLoading(false));
+    }
+  }, [unidad]); // 👈 se dispara cada vez que cambia unidad
 
-  const { name, sys, main, weather, wind } = ultimoClima;
+  if (!ultimoClima || loading) return <p>Cargando clima...</p>;
+
+  const { main, name, weather } = ultimoClima;
 
   return (
-    <section>
-      <h2>{name}, {sys.country}</h2>
+    <div>
+      <h2>Clima Actual</h2>
+      <p>{name}</p>
       <p>{Math.round(main.temp)}° {unidad === "metric" ? "C" : "F"}</p>
       <p>{weather[0].description}</p>
-      <p>Viento: {Math.round(wind.speed)} {unidad === "metric" ? "m/s" : "mph"}</p>
-      <p>Mín: {Math.round(main.temp_min)}° | Máx: {Math.round(main.temp_max)}°</p>
-    </section>
+    </div>
   );
 }

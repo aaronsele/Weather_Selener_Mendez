@@ -1,0 +1,19 @@
+.clima-actual {
+    background-color: #1e1e2f;
+    color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    width: 250px;
+  }
+  
+  .clima-actual h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .clima-actual p {
+    margin: 0.2rem 0;
+    font-size: 1.1rem;
+  }
+  

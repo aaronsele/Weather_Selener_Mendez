@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
-import { ClimaContext } from "./contexts/ClimaContext";
-import { obtenerClimaActual } from "./api/Clima";
+import { ClimaContext } from "../contexts/ClimaContext";
+import { obtenerClimaActual } from "../api/Clima";
+import "./CiudadesDestacadas.css";
 
 const CIUDADES = ["Nueva York", "Madrid", "Tokio"];
 

@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { ClimaContext } from "./ClimaContext";
+import { ClimaContext } from "../contexts/ClimaContext";
 
 export default function WeatherApp() {
   const { unidad, cambiarUnidad, tema, cambiarTema, ultimoClima, setUltimoClima } = useContext(ClimaContext);
@@ -33,7 +33,7 @@ export default function WeatherApp() {
 
   return (
     <div className={`weather-app ${tema}`}>
-      <h1>🌤️ Weather App</h1>
+      <h1>🌤️ Prensa Pronostico</h1>
 
       <div>
         <input

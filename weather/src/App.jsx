@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
-import { ClimaContext } from "./context/ClimaContext";
+import { ClimaContext } from "./contexts/ClimaContext";
 import { obtenerClimaActual } from "./api/Clima";
+import "./App.css";
 
 import BuscadorCiudad from "./components/BuscadorCiudad";
 import ClimaActual from "./components/ClimaActual";

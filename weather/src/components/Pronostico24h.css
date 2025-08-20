@@ -1,0 +1,21 @@
+.pronostico-24h {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+  }
+  
+  .pronostico-24h .hora {
+    background-color: #2a2a40;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    min-width: 70px;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .pronostico-24h .hora p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+  }
+  

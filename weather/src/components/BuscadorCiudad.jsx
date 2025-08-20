@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
-import { ClimaContext } from "./contexts/ClimaContext";
-import { obtenerClimaActual } from "./api/Clima";
+import { ClimaContext } from "../contexts/ClimaContext";
+import { obtenerClimaActual } from "../api/Clima";
 
 export default function BuscadorCiudad() {
   const [ciudad, setCiudad] = useState("");
