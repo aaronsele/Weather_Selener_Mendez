@@ -35,6 +35,8 @@ export default function Pronostico5Dias() {
 
   if (!ultimoClima) return null;
 
+  
+
   return (
     <section>
       <h3>Pronóstico 5 días</h3>

@@ -1,19 +1,50 @@
-.clima-actual {
-    background-color: #1e1e2f;
-    color: #ffffff;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    text-align: center;
-    width: 250px;
-  }
-  
-  .clima-actual h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .clima-actual p {
-    margin: 0.2rem 0;
-    font-size: 1.1rem;
-  }
-  
+.clima-card {
+  max-width: 280px;
+  margin: 1.5rem auto;
+  padding: 1.2rem; /* un poco más de aire */
+  border-radius: 15px;
+  background: linear-gradient(135deg, #6e6e6e, #3c3c3c); /* degradado más suave */
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  font-family: "Segoe UI", sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clima-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.clima-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+}
+
+.ciudad {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.temp {
+  font-size: 1.8rem; /* un poco más grande para destacar */
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.descripcion {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.clima-emoji {
+  font-size: 2.2rem; /* tamaño cómodo del icono */
+  line-height: 1;
+}
