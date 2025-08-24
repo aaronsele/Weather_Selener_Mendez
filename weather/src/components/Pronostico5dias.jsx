@@ -24,7 +24,8 @@ export default function Pronostico5Dias() {
             fecha,
             min: Math.min(...temps),
             max: Math.max(...temps),
-            desc: valores[0].weather[0].description
+            desc: valores[0].weather[0].description,
+            icon: valores[0].weather
           };
         });
 
@@ -35,18 +36,29 @@ export default function Pronostico5Dias() {
 
   if (!ultimoClima) return null;
 
-  
+  const getWeatherIcon = (weather) => {
+    const mainWeather = weather[0].main.toLowerCase();
+    if (mainWeather.includes("clear")) return "☀️";
+    if (mainWeather.includes("cloud")) return "☁️";
+    if (mainWeather.includes("rain")) return "🌧️";
+    if (mainWeather.includes("snow")) return "❄️";
+    if (mainWeather.includes("thunder")) return "⛈️";
+    return "🌡️";
+  };
 
   return (
-    <section>
+    <section className="pronostico5-section">
       <h3>Pronóstico 5 días</h3>
-      {dias.map((d, i) => (
-        <div key={i}>
-          <p>{d.fecha}</p>
-          <p>Mín: {Math.round(d.min)}° | Máx: {Math.round(d.max)}°</p>
-          <p>{d.desc}</p>
-        </div>
-      ))}
+      <div className="pronostico5-container">
+        {dias.map((d, i) => (
+          <div className="pronostico5-card" key={i}>
+            <p className="fecha">{d.fecha}</p>
+            <p className="icono">{getWeatherIcon(d.icon)}</p>
+            <p className="temp">Mín: {Math.round(d.min)}° | Máx: {Math.round(d.max)}° {unidad === "metric" ? "C" : "F"}</p>
+            <p className="descripcion">{d.desc}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

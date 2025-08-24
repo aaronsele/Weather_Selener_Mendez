@@ -18,15 +18,32 @@ export default function Pronostico24h() {
 
   if (!ultimoClima) return null;
 
+  // --- función de íconos ---
+  const getWeatherIcon = (weather, dt) => {
+    const mainWeather = weather[0].main.toLowerCase();
+    const fecha = new Date(dt * 1000);
+    const hora = fecha.getHours();
+
+    if (mainWeather.includes("clear")) {
+      return hora >= 20 || hora < 6 ? "🌙" : "☀️";
+    }
+    if (mainWeather.includes("cloud")) return "☁️";
+    if (mainWeather.includes("rain")) return "🌧️";
+    if (mainWeather.includes("snow")) return "❄️";
+    if (mainWeather.includes("thunder")) return "⛈️";
+    return "🌡️";
+  };
+
   return (
-    <section>
+    <section className="pronostico-section">
       <h3>Pronóstico 24h</h3>
-      <div style={{ display: "flex", gap: "1rem", overflowX: "auto" }}>
+      <div className="pronostico-container">
         {datos.map((item, i) => (
-          <div key={i}>
-            <p>{new Date(item.dt * 1000).toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" })}</p>
-            <p>{Math.round(item.main.temp)}°</p>
-            <p>{item.weather[0].description}</p>
+          <div className="pronostico-card" key={i}>
+            <p className="hora">{new Date(item.dt * 1000).toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" })}</p>
+            <p className="icono">{getWeatherIcon(item.weather, item.dt)}</p>
+            <p className="temp">{Math.round(item.main.temp)}° {unidad === "metric" ? "C" : "F"}</p>
+            <p className="descripcion">{item.weather[0].description}</p>
           </div>
         ))}
       </div>

@@ -1,0 +1,18 @@
+.toggle-tema-button {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #6e6e6e, #3c3c3c);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.toggle-tema-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #5a5a5a, #2c2c2c);
+}

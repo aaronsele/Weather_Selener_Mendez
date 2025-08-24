@@ -14,15 +14,31 @@ export default function CiudadesDestacadas() {
       .then(setClimas);
   }, [unidad]);
 
+  const getWeatherIcon = (weather, dt) => {
+    const mainWeather = weather[0].main.toLowerCase();
+    const fecha = dt ? new Date(dt * 1000) : new Date();
+    const hora = fecha.getHours();
+
+    if (mainWeather.includes("clear")) {
+      return hora >= 20 || hora < 6 ? "🌙" : "☀️";
+    }
+    if (mainWeather.includes("cloud")) return "☁️";
+    if (mainWeather.includes("rain")) return "🌧️";
+    if (mainWeather.includes("snow")) return "❄️";
+    if (mainWeather.includes("thunder")) return "⛈️";
+    return "🌡️";
+  };
+
   return (
-    <section>
+    <section className="ciudades-section">
       <h3>Ciudades destacadas</h3>
-      <div style={{ display: "flex", gap: "1rem" }}>
+      <div className="ciudades-container">
         {climas.map((c, i) => (
-          <div key={i}>
-            <p>{c.name}</p>
-            <p>{Math.round(c.main.temp)}°</p>
-            <p>{c.weather[0].description}</p>
+          <div className="ciudad-card" key={i}>
+            <p className="ciudad-nombre">{c.name}</p>
+            <p className="icono">{getWeatherIcon(c.weather, c.dt)}</p>
+            <p className="temp">{Math.round(c.main.temp)}° {unidad === "metric" ? "C" : "F"}</p>
+            <p className="descripcion">{c.weather[0].description}</p>
           </div>
         ))}
       </div>

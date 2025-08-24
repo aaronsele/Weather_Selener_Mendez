@@ -1,21 +1,130 @@
+body.light-theme {
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+  background-color: #1e1e1e;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Las cards siguen igual, no cambian con el tema */
+.clima-card, .pronostico-card, .ciudad-card, .pronostico5-card {
+  background: linear-gradient(135deg, #6e6e6e, #3c3c3c);
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #121226;
   margin: 0;
-  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #1e1e1e; /* Modo oscuro inicial */
   color: #fff;
 }
 
-header {
+.app-container {
   display: flex;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 2rem;
 }
 
-main {
+.header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
   flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ClimaActual y Pronostico24h horizontal */
+.main-content {
+  display: flex;
   gap: 2rem;
-  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ClimaActual grande */
+.clima-card {
+  flex: 1 1 280px;
+  min-width: 280px;
+}
+
+/* Pronóstico 24h carrusel horizontal */
+.pronostico-24h-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+/* Cada item del pronóstico 24h */
+.pronostico-24h-container > div {
+  min-width: 80px;
+  flex: 0 0 auto;
+  background: linear-gradient(135deg, #6e6e6e, #3c3c3c);
+  color: #fff;
+  padding: 0.6rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* Pronóstico 5 días y ciudades destacadas */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1 1 200px;
+}
+
+.pronostico5-card, .ciudad-card {
+  background: linear-gradient(135deg, #6e6e6e, #3c3c3c);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+/* Scrollbar estilo */
+.pronostico-24h-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.pronostico-24h-container::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 3px;
+}
+
+/* Títulos */
+h2, h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .sidebar > * {
+    flex: 0 0 auto;
+  }
 }

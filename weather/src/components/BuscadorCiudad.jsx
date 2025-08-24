@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { ClimaContext } from "../contexts/ClimaContext";
 import { obtenerClimaActual } from "../api/Clima";
+import "./BuscadorCiudad.css";
 
 export default function BuscadorCiudad() {
   const [ciudad, setCiudad] = useState("");
@@ -22,7 +23,7 @@ export default function BuscadorCiudad() {
   };
 
   return (
-    <div>
+    <div className="buscador-container">
       <input
         type="text"
         placeholder="Buscar ciudad..."

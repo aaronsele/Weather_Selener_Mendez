@@ -1,19 +1,59 @@
-.ciudades-destacadas {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .ciudad {
-    background-color: #2a2a40;
-    padding: 1rem;
-    border-radius: 1rem;
-    text-align: center;
-    min-width: 120px;
-    color: #ffffff;
-  }
-  
-  .ciudad p {
-    margin: 0.3rem 0;
-  }
-  
+.ciudades-section {
+  max-width: 95%;
+  margin: 2rem auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.ciudades-section h3 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.ciudades-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.ciudad-card {
+  flex: 0 0 auto;
+  background: linear-gradient(135deg, #6e6e6e, #3c3c3c);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 120px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ciudad-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.ciudad-nombre {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.icono {
+  font-size: 2rem;
+  margin: 0.2rem 0;
+}
+
+.temp {
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 0.2rem 0;
+}
+
+.descripcion {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  text-transform: capitalize;
+}
